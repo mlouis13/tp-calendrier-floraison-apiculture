@@ -97,18 +97,18 @@ async function searchAPI() {
 		} else if (responseJS[i].pollen == 1) {
 			barre3.classList.add("barre1");
 			barre4.classList.add("barre21");
-			barre.appendChild(barre2);
-			chiant5.append(pollen, barre);
+			barre3.appendChild(barre4);
+			chiant5.append(pollen, barre3);
 		} else if (responseJS[i].pollen == 2) {
 			barre3.classList.add("barre2");
 			barre4.classList.add("barre22");
-			barre.appendChild(barre2);
-			chiant5.append(pollen, barre);
+			barre3.appendChild(barre4);
+			chiant5.append(pollen, barre3);
 		} else if (responseJS[i].pollen == 3) {
 			barre3.classList.add("barre3");
 			barre4.classList.add("barre23");
-			barre.appendChild(barre2);
-			chiant5.append(pollen, barre);
+			barre3.appendChild(barre4);
+			chiant5.append(pollen, barre3);
 		}
 
 		chiant2.append(chiant3, chiant4, chiant5);
