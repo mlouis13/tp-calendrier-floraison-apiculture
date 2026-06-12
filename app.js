@@ -25,9 +25,19 @@ async function searchAPI() {
 	console.log(responseJS);
 	container.innerHTML = "";
 	for (let i = 0; i < responseJS.length; i++) {
+		const secondCard = document.createElement("div");
+		secondCard.classList.add("secondcard");
+		const divEtoile = document.createElement("div");
+		divEtoile.classList.add("divEtoile2");
+		divEtoile.style.display = "none";
+		const etoile = document.createElement("img");
+		etoile.setAttribute("src", "Vector (6).png");
+		const img = document.createElement("img");
+		img.setAttribute("src", responseJS[i].image);
 		const name = document.createElement("h1");
 		name.textContent = responseJS[i].name;
 		const card = document.createElement("div");
+		card.classList.add("card");
 		const floraison = document.createElement("p");
 		floraison.textContent = "floraison";
 		const mois = document.createElement("h5");
@@ -69,6 +79,8 @@ async function searchAPI() {
 		const barre2 = document.createElement("div");
 		const barre3 = document.createElement("div");
 		const barre4 = document.createElement("div");
+		const note = document.createElement("img");
+
 		if (responseJS[i].propolis == 1) {
 			chiant3.append(propopolis, coche);
 		} else {
@@ -110,10 +122,20 @@ async function searchAPI() {
 			barre3.appendChild(barre4);
 			chiant5.append(pollen, barre3);
 		}
-
+		if (responseJS[i].melliferous == 3) {
+			note.setAttribute("src", "./Group.png");
+			note.style.width = "82px";
+		} else if (responseJS[i].melliferous == 2) {
+			note.setAttribute("src", "./Group (1).png");
+			note.style.width = "52px";
+		} else if (responseJS[i].melliferous == 1) {
+			divEtoile.appendChild(etoile);
+			divEtoile.style.display = "block";
+		}
 		chiant2.append(chiant3, chiant4, chiant5);
 		chiant.append(floraison, mois);
-		card.append(name, chiant, description, chiant2);
-		container.appendChild(card);
+		card.append(divEtoile, note, name, chiant, description, chiant2);
+		secondCard.append(img, card);
+		container.appendChild(secondCard);
 	}
 }
